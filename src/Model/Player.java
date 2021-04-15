@@ -39,35 +39,47 @@ public class Player {
         int codigoTecla = tecla.getKeyCode(); //PEGA O CÓDIGO DA TECLA PARA REALIZAR O MOVIMENTO
         
        
-        if(codigoTecla == KeyEvent.VK_UP){
-            dy = 3; //QUANDO FOR PRECIONADO A TECLA PARA CIMA, dy RECEBE 3 FAZENDO A POSIÇÃO DO PERSONAGEM SUBIR
+        if(codigoTecla == KeyEvent.VK_UP || codigoTecla == KeyEvent.VK_W){
+            dy = -3; //QUANDO FOR PRECIONADO A TECLA PARA CIMA, dy RECEBE 3 FAZENDO A POSIÇÃO DO PERSONAGEM SUBIR
         }
-        if(codigoTecla == KeyEvent.VK_DOWN){
-            dy = -3;  //ADICIONAR AQUI METODO PARA AGACHAR 
+        if(codigoTecla == KeyEvent.VK_DOWN || codigoTecla == KeyEvent.VK_S){
+            dy = 3;  //ADICIONAR AQUI METODO PARA AGACHAR 
         }
-        if(codigoTecla == KeyEvent.VK_LEFT){
-            dy = -3;  
+        if(codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A){
+            dx = -3;  
         }
-        if(codigoTecla == KeyEvent.VK_RIGHT){
-            dy = 3; 
+        if(codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D){
+            dx = 3; 
         }
     }
     
         public void KeyRelease(KeyEvent tecla){ //MÉTODO PARA PARAR O MOVIMENTO CONSTANTE
         int codigoTecla = tecla.getKeyCode();  //APÓS DEIXAR DE PRECIONAR UMA TECLA
 
-        if(codigoTecla == KeyEvent.VK_UP){
+        if(codigoTecla == KeyEvent.VK_UP || codigoTecla == KeyEvent.VK_W){
             dy = 0;  
         }
-        if(codigoTecla == KeyEvent.VK_DOWN){
+        if(codigoTecla == KeyEvent.VK_DOWN || codigoTecla == KeyEvent.VK_S){
             dy = 0;  //ADICIONAR AQUI METODO PARA AGACHAR 
         }
-        if(codigoTecla == KeyEvent.VK_LEFT){
-            dy = 0;  
+        if(codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A){
+            dx = 0;  
         }
-        if(codigoTecla == KeyEvent.VK_RIGHT){
-            dy = 0; 
+        if(codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D){
+            dx = 0; 
         }
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Image getImagem() {
+        return imagem;
     }
     
    
