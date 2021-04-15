@@ -1,6 +1,7 @@
 package View;
 
- import javax.swing.JFrame;
+import Level.LevelOne;
+import javax.swing.JFrame;
 /**
  *
  * @author Roniel Nunes
@@ -9,7 +10,7 @@ package View;
     
     
     public Container(){
-          //add(new Fase());
+        add( new LevelOne());
         setTitle("NOME DO JOGO");
         setSize(1280,720);//setSize(1024,768); //setSize(800,600); //MODIFICANDO O TAMANHO DA JANELA PARA UM PADRÃO
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //HABILITANDO O BOTÃO DE FECHAR A JANELA
