@@ -8,7 +8,8 @@ import javax.swing.JFrame;
  */
  public class Container extends JFrame{
     
-    
+    //PROGRAMAR AQUI COMO QUE VAI SER A INTERAÇÃO E MUDAÇÃ DE FAASES
+     
     public Container(){
         add( new LevelOne());
         setTitle("NOME DO JOGO");
