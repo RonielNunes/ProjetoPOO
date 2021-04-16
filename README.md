@@ -36,9 +36,11 @@
  <table><tr>
  <td align="center"><a href="https://github.com/ViniSRibeiro"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/37838123?v=4" width="100px;" alt=""/><br /><sub><b>Vinícius T. S. Ribeiro</b></sub></a><br /><a href="https://github.com/ViniSRibeiro" title="Grupo POO">🚀</a>
  </td>
+ 
+  <td align="center"><a href="https://github.com/Elida-E"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/72415571?v=4" width="100px;" alt=""/><br /><sub><b>Elida E.</b></sub></a><br /><a href="https://github.com/Elida-E" title="Grupo POO">🚀</a>
+ </td>
   
-<td align="center"><a href="https://github.com/Elida-E"><img style="border-radius: 50%;" src="![image](https://user-images.githubusercontent.com/46944438/115046456-d7ae7e80-9ead-11eb-89d9-234b1194f710.png)" width="100px;" alt=""/><br /><sub><b>Elida 
-</b></sub></a><br /><a href="https://github.com/Elida-E" title="Grupo POO">🚀</a>  <a href="https://github.com/Elida-E" title="Grupo POO">🚀</a></td>
+ 
 </tr>
 </table>
  
