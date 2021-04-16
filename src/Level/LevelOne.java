@@ -21,8 +21,10 @@ import javax.swing.Timer;
 //implements adiconando na hora que adicionamos o player na fase (instanciação)
 //ActionListener é o método que vai atualizar a tela quando o player estive se movendo
 public class LevelOne extends JPanel implements ActionListener{
-    private final Image fundo; //DECLARAÇÃO DO OBJETO QUE SERÁ O FUNDO VÁRIAVEIS GLOBAIS
-    private final Image piso;
+   // private final Image fundo; //DECLARAÇÃO DO OBJETO QUE SERÁ O FUNDO VÁRIAVEIS GLOBAIS
+    //private final Image piso;
+    private final Image mapa;
+    
     private ImageIcon referencia;
     private Player player;
     private Timer timerGame;
@@ -31,11 +33,14 @@ public class LevelOne extends JPanel implements ActionListener{
         setFocusable(true); //COMANDOS PARA DEIXAR MAIS EFICIENTE O CÓDIGO
         setDoubleBuffered(true);
         
-        referencia = new ImageIcon("src\\Image\\ceuLimpo.png"); //FAZ INSTÂNCIAÇÃO DO FUNDO
-        fundo = referencia.getImage(); //RECEBE A IMAGEM DO CÉU
+        //referencia = new ImageIcon("src\\Image\\ceuLimpo.png"); //FAZ INSTÂNCIAÇÃO DO FUNDO
+        //fundo = referencia.getImage(); //RECEBE A IMAGEM DO CÉU
         
-        referencia = new ImageIcon("src\\Image\\pisoGrama.png");
-        piso = referencia.getImage();
+        //referencia = new ImageIcon("src\\Image\\pisoGrama.png");
+        //piso = referencia.getImage();
+        
+        referencia = new ImageIcon("src\\Image\\mapa1.png");
+        mapa = referencia.getImage();
         
         player = new Player(); //INSTÂNCIANDO O PLAYER NA FASE(LEVELONE)
         player.loadImagemPlayer(); //CARREGA A IMAGEM DO PLAYER
@@ -49,8 +54,9 @@ public class LevelOne extends JPanel implements ActionListener{
     @Override
     public void paint(Graphics g){//MÉTODO PARA CARREGAR A IMAGEM NA TELA, "PINTAR A TELA"//UTILIZASE DA CLASSE GRAPHICS PARA FAZER ISSO
         Graphics2D graficos = (Graphics2D)g;
-        graficos.drawImage(fundo, 0, 0, null); //INDICA IMAGEM, POSIÇÃO,POSIÇÃO E CENTRO DA TELA COMO REFERENCIA
-        graficos.drawImage(piso,0,0, null);
+        //graficos.drawImage(fundo, 0, 0, null); //INDICA IMAGEM, POSIÇÃO,POSIÇÃO E CENTRO DA TELA COMO REFERENCIA
+        //graficos.drawImage(piso,0,0, null);
+        graficos.drawImage(mapa,0,0, null);
         
         graficos.drawImage(player.getImagem(),player.getX(),player.getY(), this); //FAZ A PINTURA DO PLAYER NA TELA NAS POSIÇÕES ADICIONADAS this indica nesse plano
         
