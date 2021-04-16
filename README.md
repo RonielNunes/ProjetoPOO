@@ -11,22 +11,33 @@
    🚀Descrição do Projeto
 </h1>
 <p>
-  Escreber uma breve descrição do projeto
+  Neste projeto,o grupo deveria propor e desenvolver um sistema usando orientação a objetos e a
+linguagem Java. Deste modo, foi escolhido o desenvolvimento de um jogo 2D. 
 </p>
  
  <h1>
     🎯Sobre
  </h1>
  <p>
- Falar sobre
+ Desccrever de forma simples e completa o jogo
  </p>
  
  <h1>
     ✨Objetivo
  </h1>
- <p>
- Falar sobre
- </p>
+<p>
+Objetivos à alcançar até o final do projeto:
+</p>
+
+<ul> 
+<li>um domínio maior da orientação a objetos e da tecnologia Java;</li> 
+<li>capacidade de organizar um sistema em módulos bem definidos, reduzindo o acoplamento e
+aumentando a coesão;</li> 
+<li>amadurecimento com a experiência de se trabalhar em equipe</li> 
+<li>utilizar uma ferramenta de controle de tarefas e de controle de versão</li> 
+</ul>
+ 
+ 
  
 <h1>
 🛠 Tecnologia
