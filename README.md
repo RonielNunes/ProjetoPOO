@@ -2,6 +2,11 @@
   Projeto POO - Jogo Desbravando o Ensino
 </h1>
 
+
+<h4 align="center">
+  🚧  Projeto POO - Jogo Desbravando o Ensino 🚀 Em construção...  🚧
+</h4>
+
 <h1>
     Descrição do Projeto
 </h1>
@@ -53,7 +58,4 @@
 
 <!--te-->
 
-<h4 align="center">
-  🚧  Projeto POO - Jogo Desbravando o Ensino 🚀 Em construção...  🚧
-</h4>
 
