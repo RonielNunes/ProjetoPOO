@@ -61,7 +61,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <ul> 
 <li>Elida Emelly Antunes</li> 
 <li>Roniel Nunes Barbosa</li> 
-<li>inícius Tadeu</li> 
+<li>Vinícius Tadeu</li> 
 </ul>
 
 
