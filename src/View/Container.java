@@ -8,7 +8,7 @@ import javax.swing.JFrame;
  */
  public class Container extends JFrame{
     
-    //PROGRAMAR AQUI COMO QUE VAI SER A INTERAÇÃO E MUDAÇÃ DE FAASES
+    //PROGRAMAR AQUI COMO QUE VAI SER A INTERAÇÃO E MUDANÇA DE FASES
      
     public Container(){
         add( new LevelOne());

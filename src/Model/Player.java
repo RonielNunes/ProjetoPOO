@@ -17,8 +17,8 @@ public class Player {
     ImageIcon referencia; //VARIÁVEL PARA REFERENCIAR AS IAMGENS DO PLAYER
     
     public Player() {
-        this.x = 100; //COORDENADA DA TELA QUE O PLAYER VA COMEÇAR
-        this.y = 100; //PIXEL DA TELA
+        this.x = 270; //COORDENADA DA TELA QUE O PLAYER VA COMEÇAR
+        this.y = 560; //PIXEL DA TELA
  
     }
     
