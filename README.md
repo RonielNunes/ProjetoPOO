@@ -26,15 +26,15 @@ linguagem Java. Deste modo, foi escolhido o desenvolvimento de um jogo 2D.
     ✨Objetivo
  </h1>
 <p>
-Objetivos à alcançar até o final do projeto:
+		Objetivos à alcançar até o final do projeto:
 </p>
 
 <ul> 
-<li>um domínio maior da orientação a objetos e da tecnologia Java;</li> 
-<li>capacidade de organizar um sistema em módulos bem definidos, reduzindo o acoplamento e
+		<li>um domínio maior da orientação a objetos e da tecnologia Java;</li> 
+		<li>capacidade de organizar um sistema em módulos bem definidos, reduzindo o acoplamento e
 aumentando a coesão;</li> 
-<li>amadurecimento com a experiência de se trabalhar em equipe</li> 
-<li>utilizar uma ferramenta de controle de tarefas e de controle de versão</li> 
+		<li>amadurecimento com a experiência de se trabalhar em equipe</li> 
+		<li>utilizar uma ferramenta de controle de tarefas e de controle de versão</li> 
 </ul>
  
  
@@ -43,12 +43,12 @@ aumentando a coesão;</li>
 🛠 Tecnologia
 </h1>
 <p>
-As seguintes ferramentas foram usadas na construção do projeto:
+		As seguintes ferramentas foram usadas na construção do projeto:
 </p>
 <ul> 
-<li>Linguagem de programação java</li> 
-<li>IDE NetBeans</li> 
-<li>Photoshop CS6</li> 
+		<li>Linguagem de programação java</li> 
+		<li>IDE NetBeans</li> 
+		<li>Photoshop CS6</li> 
 </ul>
 
  <h1>
@@ -70,9 +70,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
  </h1>
  
 <ul> 
-<li>Elida Emelly Antunes</li> 
-<li>Roniel Nunes Barbosa</li> 
-<li>Vinícius Tadeu</li> 
+		<li>Elida Emelly Antunes</li> 
+		<li>Roniel Nunes Barbosa</li> 
+		<li>Vinícius Tadeu</li> 
 </ul>
 
 
