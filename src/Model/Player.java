@@ -81,6 +81,4 @@ public class Player {
     public Image getImagem() {
         return imagem;
     }
-    
-   
 }
