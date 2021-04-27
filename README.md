@@ -19,7 +19,7 @@ linguagem Java. Deste modo, foi escolhido o desenvolvimento de um jogo 2D.
     🎯Sobre
  </h1>
  <p>
- Desccrever de forma simples e completa o jogo
+ O jogo conta a história do dia-a-dia de um professor normal, que para fins ilustrativos nos inspíraremos no professor Fabrício, da disciplina de Programação Orientada a Objetos. O objetivo do jogo é encerrar as tarefas diárias e sanar as eventuais dúvidas de alunos que o professor encontra no caminho, sem que a energia se esgote e o professor desmaie no chão devido ao cansaço extremo.
  </p>
  
  <h1>
