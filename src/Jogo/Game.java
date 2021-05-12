@@ -2,6 +2,7 @@ package Jogo;
 
 import Entity.Player;
 import Input.KeyInput;
+import Tile.Wall;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +11,6 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 /**
- *
  * @author Roniel Nunes
  */
 public class Game extends Canvas implements Runnable{
@@ -34,6 +34,8 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         addKeyListener(new KeyInput());
         handler.addEntity(new Player(200,200,64,64,true,Id.player,handler));
+        
+        handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
         
     }
     

@@ -8,6 +8,7 @@ package Entity;
 import Jogo.Handler;
 import Jogo.Id;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 /**
  *
@@ -76,5 +77,23 @@ public abstract class Entity {
     public void setVelY(int velY) {
         this.velY = velY;
     }
-   
+    //colisão
+    public Rectangle getBounds(){
+        return new Rectangle(getX(),getY(),width,height);
+    }
+    
+    public Rectangle getBoundsTop(){
+        return new Rectangle(getX()+10,getY(),width-20,5);
+    }
+    public Rectangle getBoundsBottom(){
+        return new Rectangle(getX()+10,getY()+width-5,width-20,5);
+    }
+    
+    public Rectangle getBoundsLeft(){
+        return new Rectangle(getX(),getY()+10,5,height-20);
+    }
+    
+    public Rectangle getBoundsRight(){
+        return new Rectangle(getX()+width-5,getY()+10,5,height-20);
+    }
 }

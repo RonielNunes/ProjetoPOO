@@ -8,6 +8,7 @@ package Tile;
 import Jogo.Handler;
 import Jogo.Id;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 /**
  *
@@ -72,6 +73,10 @@ public abstract class Tile {
  
     public void setVelY(int velY) {
         this.velY = velY;
+    }
+    
+    public Rectangle getBounds(){
+        return new Rectangle(getX(),getY(),width,height);
     }
   
 }

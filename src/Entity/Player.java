@@ -7,6 +7,7 @@ package Entity;
 
 import Jogo.Handler;
 import Jogo.Id;
+import Tile.Tile;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -42,6 +43,30 @@ public class Player extends Entity{
         }
         if(y + height >=771){ //colisao baixo
             y = 771 - height;
+        }
+        //colisao //voltar 11
+        for (Tile t: handler.tile) {
+            if(!t.solid){
+                break;
+            }
+            if(t.getId() == Id.wall){
+                if(getBoundsTop().intersects(t.getBounds())){
+                    setVelY(0);
+                    y = getY()+t.height;
+                }
+                if(getBoundsBottom().intersects(t.getBounds())){
+                    setVelY(0);
+                    y = getY()-t.height;
+                }
+                if(getBoundsLeft().intersects(t.getBounds())){
+                    setVelX(0);
+                    x = t.getX()+t.width;
+                }
+                if(getBoundsRight().intersects(t.getBounds())){
+                    setVelX(0);
+                    x = t.getX()-t.width;
+                }
+            }
         }
     }
 }
