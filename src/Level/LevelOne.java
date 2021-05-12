@@ -18,6 +18,7 @@ import javax.swing.Timer;
  */
  
 //extends adicionando na hora que adicionamos level no container
+ //teste
 //implements adiconando na hora que adicionamos o player na fase (instanciação)
 //ActionListener é o método que vai atualizar a tela quando o player estive se movendo
 public class LevelOne extends JPanel implements ActionListener{
