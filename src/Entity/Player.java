@@ -44,7 +44,7 @@ public class Player extends Entity{
         if(y + height >=771){ //colisao baixo
             y = 771 - height;
         }
-        //colisao //voltar 11
+        //colisao  
         for (Tile t: handler.tile) {
             if(!t.solid){
                 break;
@@ -52,15 +52,15 @@ public class Player extends Entity{
             if(t.getId() == Id.wall){
                 if(getBoundsTop().intersects(t.getBounds())){
                     setVelY(0);
-                    y = getY()+t.height;
+                    y = t.getY()+t.height; //se precimar muito ele muda para outra possicap
                 }
                 if(getBoundsBottom().intersects(t.getBounds())){
-                    setVelY(0);
-                    y = getY()-t.height;
+                    setVelY(0); //se precimar muito ele muda para outra possicap
+                    y = t.getY()-t.height;
                 }
                 if(getBoundsLeft().intersects(t.getBounds())){
                     setVelX(0);
-                    x = t.getX()+t.width;
+                    x = t.getX()+t.width; 
                 }
                 if(getBoundsRight().intersects(t.getBounds())){
                     setVelX(0);
