@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import Jogo.Game;
 import Jogo.Handler;
 import Jogo.Id;
 import Tile.Tile;
@@ -23,8 +24,9 @@ public class Player extends Entity{
 
     //Implemtação dos metodos abstratos
     public void render(Graphics g) {
-      g.setColor(Color.BLUE);
-      g.fillRect(x, y,width , height);
+      //g.setColor(Color.BLUE);
+     // g.fillRect(x, y,width , height);
+        g.drawImage(Game.player.getBufferedImage(),x,y,width,height,null);
     }
 
  

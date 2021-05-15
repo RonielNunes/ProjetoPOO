@@ -3,6 +3,8 @@ package Jogo;
 import Entity.Player;
 import Input.KeyInput;
 import Tile.Wall;
+import gfx.Sprite;
+import gfx.SpriteSheet;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,6 +24,10 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     private boolean running = false;
     public static Handler handler;
+    public static SpriteSheet sheet;
+    
+    public static Sprite grass;
+    public static Sprite player;
     
     public Game(){
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT*SCALE);
@@ -32,7 +38,12 @@ public class Game extends Canvas implements Runnable{
     
     private void init(){
         handler = new Handler();
+        sheet = new SpriteSheet("src\\res\\sheet.png");
+        
         addKeyListener(new KeyInput());
+        grass = new Sprite (sheet,2,1);
+        player = new Sprite(sheet,1,1);
+        
         handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
         
         //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
