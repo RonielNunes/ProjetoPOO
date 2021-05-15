@@ -17,9 +17,17 @@ import java.awt.Rectangle;
 public abstract class Entity {
     public int x,y;
     public int width, height;
-    public int velX,velY;
+    
+    
     public boolean solid;
+    public boolean jumping = false;
+    public boolean falling = true;
+    
+    public int velX,velY;
+    
     public Id id;
+    
+    public double gravity = 0.0;
     
     public Handler handler;
     

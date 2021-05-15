@@ -33,9 +33,9 @@ public class Game extends Canvas implements Runnable{
     private void init(){
         handler = new Handler();
         addKeyListener(new KeyInput());
-        handler.addEntity(new Player(200,200,64,64,true,Id.player,handler));
+        handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
         
-        handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
+        //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
         
     }
     
