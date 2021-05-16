@@ -11,27 +11,33 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 /**
  * @author Roniel Nunes
  */
 public class Game extends Canvas implements Runnable{
-    public static final int WIDTH = 270;
-    public static final int HEIGHT = WIDTH/14*10;
+    public static final int WIDTH = 320;//WIDTH = 270;
+    public static final int HEIGHT = 180; //HEIGHT = WIDTH/14*10;
     public static final int SCALE = 4;
     public static final String TITLE = "Fabricio Adventures";
     
     private Thread thread;
     private boolean running = false;
+    private BufferedImage image;
+    
     public static Handler handler;
     public static SpriteSheet sheet;
-    
     public static Camera cam;
     
     
     public static Sprite grass;
-    public static Sprite player[] = new Sprite[12];//player;//[]= new Sprite[18];
+    public static Sprite []player;//player;//[]= new Sprite[18];
     
     public Game(){
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT*SCALE);
@@ -44,15 +50,25 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         sheet = new SpriteSheet("src\\res\\sheet.png");
         cam = new Camera();
+        
         addKeyListener(new KeyInput()); 
+        
         grass = new Sprite (sheet,1,1); //coluna linha 
-        //player= new Sprite (sheet,1,1);
+        player = new Sprite[12];//player= new Sprite (sheet,1,1);
         
         for(int i=0;i<player.length;i++){
-            player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+            player[i] = new Sprite(sheet,i+1,16);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
         }
         
-        handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
+        try{
+            image = ImageIO.read(new FileInputStream("src\\res\\teste2.png"));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        handler.createLevel(image);
+        
+        //handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
+        
         
         //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
         
