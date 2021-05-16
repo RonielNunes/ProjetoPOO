@@ -25,11 +25,11 @@ public class Student extends Entity{
         switch(dir){
             case 0:
                 setVelX(-2);
-                facing = 1;
+                facing = 0;
                 break;
             case 1:
                 setVelX(2);
-                facing = 3;
+                facing = 1;
                 break;
         }
     }
@@ -64,9 +64,11 @@ public class Student extends Entity{
                 }
                 if(getBoundsLeft().intersects(t.getBounds())){
                     setVelX(2);
+                    facing = 1;
                 }
                 if(getBoundsRight().intersects(t.getBounds())){
                     setVelX(-2);
+                    facing = 0;
                 }
             }   
         }
