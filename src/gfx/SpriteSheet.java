@@ -6,6 +6,7 @@
 package gfx;
 
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -18,7 +19,7 @@ public class SpriteSheet {
 
     public SpriteSheet(String path) {
         try{
-            sheet = ImageIO.read(getClass().getResource(path));
+            sheet = ImageIO.read(new FileInputStream(path)); 
         }catch(IOException e){
             e.printStackTrace();
         }
