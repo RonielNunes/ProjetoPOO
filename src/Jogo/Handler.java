@@ -85,10 +85,12 @@ public class Handler {
                 
                 if(red == 0 && green == 0 && blue == 255 && flag == 1){
                     flag = 0;
+                    System.out.println("ee");
                     addEntity(new Player(x*64,y*64,64,64,false,Id.player,this));
                 }
                 
-                if(red == 225 && green == 0 && blue == 0){
+                if(red == 255 && green == 0 && blue == 0){
+                    System.out.println("E");
                     addEntity(new Student(x*64,y*64,64,64,true,Id.student,this));
                 }
  

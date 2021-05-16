@@ -108,15 +108,15 @@ public class Player extends Entity{
             Entity e = handler.entity.get(i);
             
             if(e.getId() == Id.student){
+                if(getBoundsBottom().intersects(e.getBounds())){
+                    e.die();
+                }
                 if(getBounds().intersects(e.getBounds())){
                     die();
                 }
             }
         }
-        
-        
-        
-        
+ 
         
         if(jumping){
             gravity -= 0.1;

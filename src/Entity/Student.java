@@ -6,6 +6,7 @@ import Jogo.Handler;
 import Jogo.Id;
 import Tile.Tile;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  *
@@ -14,22 +15,36 @@ import java.awt.Graphics;
 public class Student extends Entity{
     private int frame = 0;
     private int frameDelay = 0;
-        
+    private Random random = new Random();    
+    
     public Student(int x, int y, int width, int height, boolean solid, Id id, Handler handler) {
         super(x, y, width, height, solid, id, handler);
+        
+        int dir = random.nextInt(2);
+        
+        switch(dir){
+            case 0:
+                setVelX(-2);
+                facing = 1;
+                break;
+            case 1:
+                setVelX(2);
+                facing = 3;
+                break;
+        }
     }
+    
 
  
-    @Override
     public void render(Graphics g) {
         if(facing==0){
-            g.drawImage(Game.player[frame+6].getBufferedImage(),x,y,width,height,null);
+            g.drawImage(Game.student[frame+6].getBufferedImage(),x,y,width,height,null);
         }else if (facing ==1){
-            g.drawImage(Game.player[frame].getBufferedImage(),x,y,width,height,null);
+            g.drawImage(Game.student[frame].getBufferedImage(),x,y,width,height,null);
         }
     }
 
-    @Override
+ 
     public void tick() {
         x+=velX;
         y+=velY;
@@ -41,6 +56,7 @@ public class Student extends Entity{
                     setVelY(0);
                     if(falling){
                         falling = false;
+                        //facing = 3;
                     }
                 }else if(!falling){
                     falling = true;
@@ -61,7 +77,7 @@ public class Student extends Entity{
         if(velX!=0){ //Usado para parar a troca de movimentos
             frameDelay++;
 
-            if(frameDelay>=3){ //10
+            if(frameDelay>=4){ //10
                 frame++;
                 if(frame>=6){ //3
                     frame = 0;

@@ -63,11 +63,11 @@ public class Game extends Canvas implements Runnable{
         }
         
         for(int i=0;i<student.length;i++){ //Linha 14
-            student[i] = new Sprite(sheet,i+1,14);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+            student[i] = new Sprite(sheet,i+1,13);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
         }
         
         try{
-            image = ImageIO.read(new FileInputStream("src\\res\\mapa1.png"));
+            image = ImageIO.read(new FileInputStream("src\\res\\levelOne.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
