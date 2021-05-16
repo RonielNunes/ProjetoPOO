@@ -25,8 +25,8 @@ public class SpriteSheet {
         }
     }
     
-    public BufferedImage getSprite(int x,int y){
-        return sheet.getSubimage(sheet.getWidth()-32, sheet.getHeight()-32, 32, 32);
+    public BufferedImage getSprite(int x, int y, int sheetRowsSize, int sheetColumnsSize){
+        return sheet.getSubimage((sheet.getWidth()/sheetRowsSize)*x, (sheet.getHeight()/sheetColumnsSize)*y, sheetRowsSize, sheetRowsSize);
     }
      
 }
