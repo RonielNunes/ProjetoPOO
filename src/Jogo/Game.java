@@ -19,7 +19,7 @@ public class Game extends Canvas implements Runnable{
     public static final int WIDTH = 270;
     public static final int HEIGHT = WIDTH/14*10;
     public static final int SCALE = 4;
-    public static final String TITLE = "Desbravando o Ensino";
+    public static final String TITLE = "Fabricio Adventures";
     
     private Thread thread;
     private boolean running = false;
