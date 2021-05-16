@@ -1,5 +1,6 @@
 package Jogo;
 
+import Entity.Entity;
 import Entity.Player;
 import Input.KeyInput;
 import Tile.Wall;
@@ -26,6 +27,9 @@ public class Game extends Canvas implements Runnable{
     public static Handler handler;
     public static SpriteSheet sheet;
     
+    public static Camera cam;
+    
+    
     public static Sprite grass;
     public static Sprite player[] = new Sprite[12];//player;//[]= new Sprite[18];
     
@@ -39,8 +43,8 @@ public class Game extends Canvas implements Runnable{
     private void init(){
         handler = new Handler();
         sheet = new SpriteSheet("src\\res\\sheet.png");
-        
-        addKeyListener(new KeyInput());
+        cam = new Camera();
+        addKeyListener(new KeyInput()); 
         grass = new Sprite (sheet,1,1); //coluna linha 
         //player= new Sprite (sheet,1,1);
         
@@ -118,6 +122,8 @@ public class Game extends Canvas implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(),getHeight());
         handler.render(g);
+        g.translate(cam.getY(),cam.getX());
+        System.out.println("x: " + cam.getX() + "y: "+cam.getY());
         //g.setColor(Color.yellow);
         //g.fillRect(200, 200,getWidth()-400, getHeight()-400);
         g.dispose();
@@ -126,7 +132,23 @@ public class Game extends Canvas implements Runnable{
     
     public void tick(){
         handler.tick(); //Adicionadno o player na tela
+        
+        for (Entity e: handler.entity) {
+            if(e.getId() == Id.player){
+                cam.tick(e);
+            }
+        }
+        
     }
+    
+    public int getFrameWitdh(){
+      return WIDTH*SCALE;
+    }
+    
+    public int getFrameHeight(){
+      return HEIGHT*SCALE;
+    }
+    
    
     public static void main(String[] args){
         Game game = new Game();

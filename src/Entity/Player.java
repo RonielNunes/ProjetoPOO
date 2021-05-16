@@ -23,6 +23,7 @@ public class Player extends Entity{
     
     private boolean animate = false;
     
+    
     public Player(int x, int y, int width, int height, boolean solid, Id id,Handler handler){
        super(x,y,width,height,solid,id,handler);
        //this.setVelX(5);
