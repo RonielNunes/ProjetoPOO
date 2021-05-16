@@ -7,6 +7,7 @@ package Jogo;
 
 import Entity.Entity;
 import Entity.Player;
+import Entity.Student;
 import Tile.Tile;
 import Tile.Wall;
 import java.awt.Graphics;
@@ -77,6 +78,7 @@ public class Handler {
                 int red = (pixel >>16)& 0xff;
                 int green = (pixel >>8)& 0xff;
                 int blue = (pixel)& 0xff;
+                
                 if(red == 0 && green == 0 && blue == 0){
                     addTile(new Wall(x*64,y*64,64,64,true,Id.wall,this));
                 }
@@ -85,15 +87,12 @@ public class Handler {
                     flag = 0;
                     addEntity(new Player(x*64,y*64,64,64,false,Id.player,this));
                 }
+                
+                if(red == 225 && green == 0 && blue == 0){
+                    addEntity(new Student(x*64,y*64,64,64,true,Id.student,this));
+                }
  
             }
         }
-        //for (int i = 0; i <Game.WIDTH*Game.SCALE/64+1; i++) {
-        //    addTile(new Wall(i*64,Game.HEIGHT*Game.SCALE-64,64,64,true,Id.wall,this));
-        //    if(i != 0 &&i!=15 && i != 1 && i !=16 && i != 17){
-        //        addTile(new Wall(i*64,300,64,64,true,Id.wall,this));
-        //    }
-        //}
     }
-    
 }

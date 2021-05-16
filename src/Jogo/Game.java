@@ -38,6 +38,7 @@ public class Game extends Canvas implements Runnable{
     
     public static Sprite grass;
     public static Sprite []player;//player;//[]= new Sprite[18];
+    public static Sprite []student;
     
     public Game(){
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT*SCALE);
@@ -55,9 +56,14 @@ public class Game extends Canvas implements Runnable{
         
         grass = new Sprite (sheet,1,1); //coluna linha 
         player = new Sprite[12];//player= new Sprite (sheet,1,1);
+        student = new Sprite[12];
         
-        for(int i=0;i<player.length;i++){
+        for(int i=0;i<player.length;i++){//Linha 16
             player[i] = new Sprite(sheet,i+1,16);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+        }
+        
+        for(int i=0;i<student.length;i++){ //Linha 14
+            student[i] = new Sprite(sheet,i+1,14);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
         }
         
         try{
@@ -66,12 +72,8 @@ public class Game extends Canvas implements Runnable{
             e.printStackTrace();
         }
         handler.createLevel(image);
-        
         //handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
-        
-        
         //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
-        
     }
     
     private synchronized void start(){
@@ -147,8 +149,7 @@ public class Game extends Canvas implements Runnable{
     }
     
     public void tick(){
-        handler.tick(); //Adicionadno o player na tela
-        
+        handler.tick(); //Adicionadno o player na tela    
         for (Entity e: handler.entity) {
             if(e.getId() == Id.player){
                 cam.tick(e);
@@ -160,11 +161,9 @@ public class Game extends Canvas implements Runnable{
     public int getFrameWitdh(){
       return WIDTH*SCALE;
     }
-    
     public int getFrameHeight(){
       return HEIGHT*SCALE;
     }
-    
    
     public static void main(String[] args){
         Game game = new Game();

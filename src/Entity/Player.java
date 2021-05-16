@@ -44,9 +44,7 @@ public class Player extends Entity{
     public void tick() {
         x+=velX;
          y+=velY;
-       // if(x <= 0){ //Colisão esquerda
-       //     x = 0;
-        //}
+       // if(x <= 0){ //Colisão esquerda //     x = 0;//}
         //y+=velY;
         if(y <= 0){ //colisao cima
             y = 0;
@@ -105,6 +103,21 @@ public class Player extends Entity{
                 }
             }
         }
+        
+        for (int i = 0; i < handler.entity.size(); i++) {
+            Entity e = handler.entity.get(i);
+            
+            if(e.getId() == Id.student){
+                if(getBounds().intersects(e.getBounds())){
+                    die();
+                }
+            }
+        }
+        
+        
+        
+        
+        
         if(jumping){
             gravity -= 0.1;
             setVelY((int)-gravity);
@@ -121,17 +134,17 @@ public class Player extends Entity{
             
         }
         
-        if(animate){ //Usado para parar a troca de movimentos
-        frameDelay++;
-        
-         if(frameDelay>=3){
-             frame++;
-             if(frame>=6){
-                frame = 0;
+        if(velX!=0){ //Usado para parar a troca de movimentos
+            frameDelay++;
+
+            if(frameDelay>=3){ //10
+                frame++;
+                if(frame>=6){ //3
+                    frame = 0;
+                }
+                frameDelay = 0;
+
             }
-            frameDelay = 0;
-            
-        }
         }
         
 
