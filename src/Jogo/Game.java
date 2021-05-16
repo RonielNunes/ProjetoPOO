@@ -27,7 +27,7 @@ public class Game extends Canvas implements Runnable{
     public static SpriteSheet sheet;
     
     public static Sprite grass;
-    public static Sprite player;
+    public static Sprite player[]= new Sprite[18];
     
     public Game(){
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT*SCALE);
@@ -42,7 +42,9 @@ public class Game extends Canvas implements Runnable{
         
         addKeyListener(new KeyInput());
         grass = new Sprite (sheet,2,1);
-        player = new Sprite(sheet,1,1);
+        for(int i=0;i<player.length;i++){
+            player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+        }
         
         handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
         

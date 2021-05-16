@@ -22,6 +22,7 @@ public abstract class Entity {
     public boolean solid;
     public boolean jumping = false;
     public boolean falling = true;
+    public int facing = 0; //0 - Esquerda, 1 = direita
     
     public int velX,velY;
     

@@ -17,6 +17,10 @@ import java.awt.Graphics;
  * @author Roniel Nunes
  */
 public class Player extends Entity{
+    
+    private int frame = 0;
+    private int frameDelay = 0;
+    
     public Player(int x, int y, int width, int height, boolean solid, Id id,Handler handler){
        super(x,y,width,height,solid,id,handler);
        //this.setVelX(5);
@@ -24,9 +28,12 @@ public class Player extends Entity{
 
     //Implemtação dos metodos abstratos
     public void render(Graphics g) {
-      //g.setColor(Color.BLUE);
-     // g.fillRect(x, y,width , height);
-        g.drawImage(Game.player.getBufferedImage(),x,y,width,height,null);
+        if(facing==0){
+            g.drawImage(Game.player[frame+8].getBufferedImage(),x,y,width,height,null);
+        }else if (facing ==1){
+            g.drawImage(Game.player[frame].getBufferedImage(),x,y,width,height,null);
+        }
+        
     }
 
  
@@ -100,6 +107,15 @@ public class Player extends Entity{
             gravity+=0.1;
             setVelY((int)gravity);
             
+            
+        }
+        frameDelay++;
+        if(frameDelay>=3){
+            frame++;
+            if(frame>=8){
+                frame = 0;
+            }
+            frameDelay = 0;
             
         }
     }
