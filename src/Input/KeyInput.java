@@ -30,9 +30,11 @@ public class KeyInput implements KeyListener{
                 //    break;
                 case KeyEvent.VK_A:
                     en.setVelX(-5);
+                    en.facing = 0; //troca movimento
                     break;
                 case KeyEvent.VK_D:
                     en.setVelX(5);
+                    en.facing = 1;//troca movimento
                     break;
             }
         } 

@@ -16,7 +16,7 @@ public class Sprite {
     public BufferedImage image;
     
     public Sprite(SpriteSheet sheet, int x ,int y){
-        image = sheet.getSprite(x, y, 32, 32);
+        image = sheet.getSprite(x, y);
     }
     
     public BufferedImage getBufferedImage(){

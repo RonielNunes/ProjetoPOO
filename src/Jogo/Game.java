@@ -27,7 +27,7 @@ public class Game extends Canvas implements Runnable{
     public static SpriteSheet sheet;
     
     public static Sprite grass;
-    public static Sprite player[]= new Sprite[18];
+    public static Sprite player[] = new Sprite[12];//player;//[]= new Sprite[18];
     
     public Game(){
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT*SCALE);
@@ -41,7 +41,9 @@ public class Game extends Canvas implements Runnable{
         sheet = new SpriteSheet("src\\res\\sheet.png");
         
         addKeyListener(new KeyInput());
-        grass = new Sprite (sheet,2,1);
+        grass = new Sprite (sheet,1,1); //coluna linha 
+        //player= new Sprite (sheet,1,1);
+        
         for(int i=0;i<player.length;i++){
             player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
         }

@@ -21,6 +21,8 @@ public class Player extends Entity{
     private int frame = 0;
     private int frameDelay = 0;
     
+    private boolean animate = false;
+    
     public Player(int x, int y, int width, int height, boolean solid, Id id,Handler handler){
        super(x,y,width,height,solid,id,handler);
        //this.setVelX(5);
@@ -28,8 +30,9 @@ public class Player extends Entity{
 
     //Implemtação dos metodos abstratos
     public void render(Graphics g) {
+        //g.drawImage(Game.player.getBufferedImage(), x, y, width,height,null);
         if(facing==0){
-            g.drawImage(Game.player[frame+8].getBufferedImage(),x,y,width,height,null);
+            g.drawImage(Game.player[frame+6].getBufferedImage(),x,y,width,height,null);
         }else if (facing ==1){
             g.drawImage(Game.player[frame].getBufferedImage(),x,y,width,height,null);
         }
@@ -40,20 +43,27 @@ public class Player extends Entity{
     public void tick() {
         x+=velX;
          y+=velY;
-        if(x <= 0){ //Colisão esquerda
-            x = 0;
-        }
+       // if(x <= 0){ //Colisão esquerda
+       //     x = 0;
+        //}
         //y+=velY;
         if(y <= 0){ //colisao cima
             y = 0;
         }
         
-        if(x + width>=1090){ //colisao direita 1080
-            x = 1090 - width;
-        }
+        //if(x + width>=1090){ //colisao direita 1080
+        //    x = 1090 - width;
+        //}
         if(y + height >=771){ //colisao baixo
             y = 771 - height;
         }
+        if(velX!=0){
+            animate = true;
+        }else{
+            animate = false;
+        }
+        
+        
         //colisao  
         for (Tile t: handler.tile) {
             if(!t.solid){
@@ -64,7 +74,7 @@ public class Player extends Entity{
                     setVelY(0);
                     if(jumping){
                         jumping = false;
-                        gravity = 0.0;
+                        gravity = 0.8;
                         falling = true;
                     }
                     //y = t.getY()+t.height;
@@ -77,7 +87,7 @@ public class Player extends Entity{
                         falling = false;
                     }else{
                         if(!falling && !jumping ){
-                            gravity = 0.0;
+                            gravity = 0.8;
                             falling = true;
                             
                         }
@@ -109,14 +119,20 @@ public class Player extends Entity{
             
             
         }
+        
+        if(animate){ //Usado para parar a troca de movimentos
         frameDelay++;
-        if(frameDelay>=3){
-            frame++;
-            if(frame>=8){
+        
+         if(frameDelay>=3){
+             frame++;
+             if(frame>=6){
                 frame = 0;
             }
             frameDelay = 0;
             
         }
+        }
+        
+
     }
 }
