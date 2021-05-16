@@ -16,8 +16,8 @@ public class Camera {
     
     
     public void tick(Entity player){
-        setX(player.getX() + (Game.WIDTH)/2);//usar o método criado
-        setY(player.getY() + (Game.HEIGHT)/2);
+        setX(-player.getX() + ((Game.WIDTH*Game.SCALE)/2));//usar o método criado
+        setY(-player.getY() + ((Game.HEIGHT*Game.SCALE)/2));
     }
 
     public int getX() {
