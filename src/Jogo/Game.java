@@ -11,6 +11,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 /**
@@ -24,9 +31,11 @@ public class Game extends Canvas implements Runnable{
     
     private Thread thread;
     private boolean running = false;
+    
+    private BufferedImage image;
+    
     public static Handler handler;
     public static SpriteSheet sheet;
-    
     public static Camera cam;
     
     
@@ -40,7 +49,7 @@ public class Game extends Canvas implements Runnable{
         this.setMinimumSize(size);
     }
     
-    private void init(){
+    private void init() throws FileNotFoundException, IOException{
         handler = new Handler();
         sheet = new SpriteSheet("src\\res\\sheet.png");
         cam = new Camera();
@@ -55,7 +64,7 @@ public class Game extends Canvas implements Runnable{
         handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
         
         //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
-        
+        image = ImageIO.read(new FileInputStream("src\\res\\level2.png"));
     }
     
     private synchronized void start(){
@@ -81,7 +90,11 @@ public class Game extends Canvas implements Runnable{
     }
     
     public void run() {
-        init();
+        try {
+            init();
+        } catch (IOException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
         requestFocus();
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
