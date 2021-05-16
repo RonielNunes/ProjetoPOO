@@ -61,7 +61,7 @@ public class Game extends Canvas implements Runnable{
         }
         
         try{
-            image = ImageIO.read(new FileInputStream("src\\res\\teste2.png"));
+            image = ImageIO.read(new FileInputStream("src\\res\\mapa1.png"));
         }catch(IOException e){
             e.printStackTrace();
         }

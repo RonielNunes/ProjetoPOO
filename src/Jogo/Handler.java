@@ -66,8 +66,10 @@ public class Handler {
     }
     
     public void createLevel(BufferedImage level){
+        int flag = 1;
         int width = level.getWidth();
         int height = level.getHeight();
+        System.out.println("w" + width+"h : " +height);
         
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -79,7 +81,8 @@ public class Handler {
                     addTile(new Wall(x*64,y*64,64,64,true,Id.wall,this));
                 }
                 
-                if(red == 0 && green == 0 && blue == 255){
+                if(red == 0 && green == 0 && blue == 255 && flag == 1){
+                    flag = 0;
                     addEntity(new Player(x*64,y*64,64,64,false,Id.player,this));
                 }
  
