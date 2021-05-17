@@ -75,7 +75,7 @@ public class Handler {
                 red = (pixel >>16)& 0xff;
                 green = (pixel >>8)& 0xff;
                 blue = (pixel)& 0xff;
-                //CONDIÇÕES PARA GERAR OS OBJETOS QUE COMPÕEM A FASE COMO: MUROS, PLAYER, ESTUDANTES E PROVA
+                
                 if(red == 0 && green == 0 && blue == 0){
                     addTile(new Wall(x*64,y*64,64,64,true,Id.wall,this));
                 }

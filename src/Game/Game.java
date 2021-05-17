@@ -173,9 +173,6 @@ public class Game extends Canvas implements Runnable{
             g.setColor(Color.WHITE);
             g.setFont(new Font("Courier",Font.BOLD,50));  
             g.drawString("WINS!", 570, 400);
-            
-            //Tem que colocar timer
-            //System.exit(0);
         }
        
         g.translate(cam.getX(),cam.getY());
@@ -188,7 +185,7 @@ public class Game extends Canvas implements Runnable{
     }
     
     public void tick(){
-        handler.tick(); //Adicionadno o player na tela    
+        handler.tick();
         for (Entity e: handler.entity) {
             if(e.getId() == Id.player){
                 cam.tick(e);

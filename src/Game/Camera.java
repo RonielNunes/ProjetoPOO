@@ -10,7 +10,7 @@ public class Camera {
     public int x,y;
     
     public void tick(Entity player){
-        setX(-player.getX() + (Game.WIDTH*2));//usar o método criado
+        setX(-player.getX() + (Game.WIDTH*2));
         setY(-player.getY() + (Game.HEIGHT*2));
     }
 

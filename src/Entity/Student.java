@@ -71,7 +71,7 @@ public class Student extends Entity{
             gravity+=0.1;
             setVelY((int)gravity);
         }
-        if(velX!=0){ //Usado para parar a troca de movimentos
+        if(velX!=0){
             frameDelay++;
 
             if(frameDelay>=4){ 

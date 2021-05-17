@@ -21,9 +21,7 @@ public class Player extends Entity{
        state = PlayerState.ALIVE;
     }
 
-    //Implemtação dos metodos abstratos
     public void render(Graphics g) {
-        //g.drawImage(Game.player.getBufferedImage(), x, y, width,height,null);
         if(facing==0){
             g.drawImage(Game.player[frame+6].getBufferedImage(),x,y,width,height,null);
         }else if (facing ==1){
@@ -68,7 +66,7 @@ public class Player extends Entity{
                     x = t.getX() - t.width;
                 }
                 if(getBounds().intersects(t.getBounds())&& t.getId()==Id.prova){;
-                    Game.provaNumero--;//Game.provaNumero++;
+                    Game.provaNumero--;
                     if(Game.provaNumero <= 0){
                         Game.gameWins = true;
                     }
@@ -107,12 +105,12 @@ public class Player extends Entity{
             
         }
         
-        if(velX!=0){ //Usado para parar a troca de movimentos
+        if(velX!=0){
             frameDelay++;
 
-            if(frameDelay>=3){ //10
+            if(frameDelay>=3){
                 frame++;
-                if(frame>=6){ //3
+                if(frame>=6){
                     frame = 0;
                 }
                 frameDelay = 0;
