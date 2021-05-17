@@ -9,6 +9,7 @@ import gfx.SpriteSheet;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -31,12 +32,19 @@ public class Game extends Canvas implements Runnable{
     private boolean running = false;
     private BufferedImage image;
     
+    public static int lives = 1;
+    public static int deathScreeanTime = 0;
+    public static boolean showDeathScreen = true;
+    public static boolean gameOver = false;
+    
     public static Handler handler;
     public static SpriteSheet sheet;
     public static Camera cam;
     
     
     public static Sprite grass;
+    
+    
     public static Sprite []player;//player;//[]= new Sprite[18];
     public static Sprite []student;
     
@@ -55,6 +63,7 @@ public class Game extends Canvas implements Runnable{
         addKeyListener(new KeyInput()); 
         
         grass = new Sprite (sheet,1,1); //coluna linha 
+        
         player = new Sprite[12];//player= new Sprite (sheet,1,1);
         student = new Sprite[12];
         
@@ -71,7 +80,7 @@ public class Game extends Canvas implements Runnable{
         }catch(IOException e){
             e.printStackTrace();
         }
-        handler.createLevel(image);
+        //handler.createLevel(image);
         //handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
         //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
     }
@@ -139,9 +148,28 @@ public class Game extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(),getHeight());
+        if(!showDeathScreen){
+           
+        }
+        if(showDeathScreen){
+            if(!gameOver){
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("Courier",Font.BOLD,50));
+                g.drawImage(Game.player[1].getBufferedImage(), 500, 300,100,100, null);
+                g.drawString("x " + lives , 610, 400);
+            }else{
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("Courier",Font.BOLD,50));
+                     
+                g.drawString("Game Over", 500, 400);
+            }
+        }
        
         g.translate(cam.getX(),cam.getY());
-        handler.render(g);
+        
+        if(!showDeathScreen){
+            handler.render(g);
+        }
         //g.setColor(Color.yellow);
         //g.fillRect(200, 200,getWidth()-400, getHeight()-400);
         g.dispose();
@@ -154,6 +182,16 @@ public class Game extends Canvas implements Runnable{
             if(e.getId() == Id.player){
                 cam.tick(e);
             }
+        }
+        
+        if(showDeathScreen &&!gameOver){
+            deathScreeanTime++;
+        }
+        if(deathScreeanTime >=180){
+            showDeathScreen = false;
+            deathScreeanTime = 0;
+            handler.clearLevel();
+            handler.createLevel(image);
         }
         
     }

@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import Jogo.Game;
 import Jogo.Handler;
 import Jogo.Id;
 import java.awt.Graphics;
@@ -18,26 +19,27 @@ public abstract class Entity {
     public int x,y;
     public int width, height;
     
-    
-    public boolean solid;
-    public boolean jumping = false;
-    public boolean falling = true;
-    public int facing = 0; //0 - Esquerda, 1 = direita
-    
     public int velX,velY;
+    
+    public int frame = 0, frameDelay = 0;
+    public int facing = 0; 
+    
+   // public boolean solid = false;
     
     public Id id;
     
-    public double gravity = 0.0;
-    
     public Handler handler;
     
-    public Entity(int x, int y, int width, int height, boolean solid, Id id,Handler handler) {
+    public boolean jumping = false, falling = false;
+ 
+    public double gravity = 0.0;
+ 
+    public Entity(int x, int y, int width, int height, Id id,Handler handler) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.solid = solid;
+        //this.solid = solid;
         this.id = id;
         this.handler = handler;
     }
@@ -48,6 +50,13 @@ public abstract class Entity {
     
     public void die(){
         handler.removeEntity(this);
+        Game.lives--;
+        Game.showDeathScreen = true;
+        
+        if(Game.lives <= 0){
+            Game.gameOver = true;
+        }
+        
     }
     
     
@@ -68,16 +77,16 @@ public abstract class Entity {
         this.y = y;
     }
 
-    public boolean isSolid() {
-        return solid;
-    }
+    //public boolean isSolid() {
+   //     return solid;
+    //}
     public Id getId(){
         return id;
     }
     
-    public void setSolid(boolean solid) {
-        this.solid = solid;
-    }
+    //public void setSolid(boolean solid) {
+    //    this.solid = solid;
+    //}
  
     public void setVelX(int velX) {
         this.velX = velX;

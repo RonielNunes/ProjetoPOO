@@ -8,6 +8,7 @@ package Entity;
 import Jogo.Game;
 import Jogo.Handler;
 import Jogo.Id;
+import States.PlayerState;
 import Tile.Tile;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,16 +18,14 @@ import java.awt.Graphics;
  * @author Roniel Nunes
  */
 public class Player extends Entity{
-    
-    private int frame = 0;
-    private int frameDelay = 0;
-    
+ 
     private boolean animate = false;
+    private PlayerState state;
     
-    
-    public Player(int x, int y, int width, int height, boolean solid, Id id,Handler handler){
-       super(x,y,width,height,solid,id,handler);
+    public Player(int x, int y, int width, int height , Id id,Handler handler){
+       super(x,y,width,height ,id,handler);
        //this.setVelX(5);
+       state = PlayerState.ALIVE;
     }
 
     //Implemtação dos metodos abstratos
@@ -108,11 +107,14 @@ public class Player extends Entity{
             Entity e = handler.entity.get(i);
             
             if(e.getId() == Id.student){
-                if(getBoundsBottom().intersects(e.getBounds())){
+                if(getBoundsBottom().intersects(e.getBoundsTop())){
                     e.die();
-                }
-                if(getBounds().intersects(e.getBounds())){
-                    die();
+                }else if(getBounds().intersects(e.getBounds())){
+                    //colocar numero de vidas 22
+                    if(state==PlayerState.ALIVE){
+                        die();
+                    }
+
                 }
             }
         }

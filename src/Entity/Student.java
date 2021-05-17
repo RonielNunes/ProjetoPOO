@@ -17,8 +17,8 @@ public class Student extends Entity{
     private int frameDelay = 0;
     private Random random = new Random();    
     
-    public Student(int x, int y, int width, int height, boolean solid, Id id, Handler handler) {
-        super(x, y, width, height, solid, id, handler);
+    public Student(int x, int y, int width, int height , Id id, Handler handler) {
+        super(x, y, width, height , id, handler);
         
         int dir = random.nextInt(2);
         
