@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entity;
 
 import Jogo.Game;
@@ -23,8 +18,7 @@ public abstract class Entity {
     
     public int frame = 0, frameDelay = 0;
     public int facing = 0; 
-    
-   // public boolean solid = false;
+ 
     
     public Id id;
     
@@ -39,12 +33,10 @@ public abstract class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
-        //this.solid = solid;
         this.id = id;
         this.handler = handler;
     }
  
-    
     public abstract void render(Graphics g);
     public abstract void tick();
     
@@ -57,8 +49,6 @@ public abstract class Entity {
             Game.gameOver = true;
         }
     }
-    
-    
 
     public int getX() {
         return x;
@@ -75,17 +65,11 @@ public abstract class Entity {
     public void setY(int y) {
         this.y = y;
     }
-
-    //public boolean isSolid() {
-   //     return solid;
-    //}
+ 
     public Id getId(){
         return id;
     }
-    
-    //public void setSolid(boolean solid) {
-    //    this.solid = solid;
-    //}
+ 
  
     public void setVelX(int velX) {
         this.velX = velX;

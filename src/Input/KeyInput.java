@@ -1,4 +1,3 @@
- 
 package Input;
 
 import Entity.Entity;
@@ -21,15 +20,11 @@ public class KeyInput implements KeyListener{
             if(en.getId() == Id.player){
                 switch(key){
                 case KeyEvent.VK_W:
-                    //en.setVelY(-5);
                     if(!en.jumping){
                         en.jumping = true;
                         en.gravity = 10.0;
                     }
                     break;
-                //case KeyEvent.VK_S:
-                //    en.setVelY(5);
-                //    break;
                 case KeyEvent.VK_A:
                     en.setVelX(-5);
                     en.facing = 0; //troca movimento
@@ -44,7 +39,6 @@ public class KeyInput implements KeyListener{
          
     }
 
-    
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
@@ -54,9 +48,6 @@ public class KeyInput implements KeyListener{
                     case KeyEvent.VK_W:
                         en.setVelY(0);
                         break;
-                    //case KeyEvent.VK_S:
-                    //    en.setVelY(0);
-                    //    break;
                     case KeyEvent.VK_A:
                         en.setVelX(0);
                         break;

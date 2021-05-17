@@ -18,8 +18,6 @@ public class Wall extends Tile{
  
  
     public void render(Graphics g) {
-       //g.setColor(Color.RED);
-       //g.fillRect(x, y, width, height);
         g.drawImage(Game.grass.getBufferedImage(),x,y,width,height,null);
     }
 

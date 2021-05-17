@@ -32,7 +32,7 @@ public class Game extends Canvas implements Runnable{
     private boolean running = false;
     private BufferedImage image;
     
-    public static int lives = 2;
+    public static int lives = 3;
     public static int deathScreeanTime = 0;
     public static boolean showDeathScreen = true;
     public static boolean gameOver = false;
@@ -48,7 +48,7 @@ public class Game extends Canvas implements Runnable{
     public static Sprite prova;
     
     
-    public static Sprite []player;//player;//[]= new Sprite[18];
+    public static Sprite []player;
     public static Sprite []student;
     
     public Game(){
@@ -68,15 +68,15 @@ public class Game extends Canvas implements Runnable{
         grass = new Sprite (sheet,1,1); //coluna linha 
         prova = new Sprite (sheet,2,1);
         
-        player = new Sprite[12];//player= new Sprite (sheet,1,1);
+        player = new Sprite[12];
         student = new Sprite[12];
         
         for(int i=0;i<player.length;i++){//Linha 16
-            player[i] = new Sprite(sheet,i+1,16);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+            player[i] = new Sprite(sheet,i+1,16);
         }
         
         for(int i=0;i<student.length;i++){ //Linha 14
-            student[i] = new Sprite(sheet,i+1,13);//player[i] = new Sprite(i+1,16,sheet);//player[i] = new Sprite(sheet,i+1,16);//TODO: Colocar coordenada Y da spriteSheet 
+            student[i] = new Sprite(sheet,i+1,13);
         }
         
         try{
@@ -84,9 +84,6 @@ public class Game extends Canvas implements Runnable{
         }catch(IOException e){
             e.printStackTrace();
         }
-        //handler.createLevel(image);
-        //handler.addEntity(new Player(300,100,64,64,true,Id.player,handler));
-        //removendo bloco adversario handler.addTile(new Wall(200,200,64,64,true,Id.wall,handler));
     }
     
     private synchronized void start(){
@@ -134,7 +131,6 @@ public class Game extends Canvas implements Runnable{
             frames++;
             if(System.currentTimeMillis()-timer>1000){
                 timer+=1000;
-                //System.out.println(frames + " Frames per second " + ticks + " Updade per second");
                 frames = 0;
                 ticks = 0;
             }
@@ -152,9 +148,7 @@ public class Game extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(),getHeight());
-        
 
-        
         if(!showDeathScreen && !gameWins){
             g.drawImage(Game.prova.getBufferedImage(), 50, 20,100,100, null);
             g.setColor(Color.WHITE);
@@ -174,24 +168,21 @@ public class Game extends Canvas implements Runnable{
                      
                 g.drawString("GAME OVER!", 500, 400);
             }
-            
-
         }
         if(gameWins){
-            System.out.println("esasssssssssssssssssssssssssssssssssssssssssssssss");
             g.setColor(Color.WHITE);
             g.setFont(new Font("Courier",Font.BOLD,50));  
             g.drawString("WINS!", 570, 400);
+            
+            //Tem que colocar timer
+            //System.exit(0);
         }
        
         g.translate(cam.getX(),cam.getY());
         
         if(!showDeathScreen && !gameWins){
-            System.out.println("-------------------------------------------------");
             handler.render(g);
         }
-        //g.setColor(Color.yellow);
-        //g.fillRect(200, 200,getWidth()-400, getHeight()-400);
         g.dispose();
         bs.show();
     }

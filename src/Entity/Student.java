@@ -1,4 +1,3 @@
- 
 package Entity;
 
 import Jogo.Game;
@@ -8,8 +7,7 @@ import Tile.Tile;
 import java.awt.Graphics;
 import java.util.Random;
 
-/**
- *
+/*
  * @author Roniel Nunes
  */
 public class Student extends Entity{
@@ -33,9 +31,7 @@ public class Student extends Entity{
                 break;
         }
     }
-    
 
- 
     public void render(Graphics g) {
         if(facing==0){
             g.drawImage(Game.student[frame+6].getBufferedImage(),x,y,width,height,null);
@@ -44,7 +40,6 @@ public class Student extends Entity{
         }
     }
 
- 
     public void tick() {
         x+=velX;
         y+=velY;
@@ -79,16 +74,13 @@ public class Student extends Entity{
         if(velX!=0){ //Usado para parar a troca de movimentos
             frameDelay++;
 
-            if(frameDelay>=4){ //10
+            if(frameDelay>=4){ 
                 frame++;
-                if(frame>=6){ //3
+                if(frame>=6){ 
                     frame = 0;
                 }
                 frameDelay = 0;
-
             }
         }
-        
     }
-    
 }

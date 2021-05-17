@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Jogo;
 
 import Entity.Entity;
@@ -22,11 +17,7 @@ import java.util.LinkedList;
 public class Handler {
     public LinkedList<Entity>entity = new LinkedList<Entity>();
     public LinkedList<Tile>tile = new LinkedList<Tile>();
-
-    //public Handler() {
-    //    createLevel();
-    //}
-
+ 
     public void render(Graphics g){
         for (int i = 0; i < entity.size(); i++) {
             Entity e = entity.get(i);
@@ -37,7 +28,6 @@ public class Handler {
             Tile t = tile.get(i);
             t.render(g);
         }
-        //for (Entity en: entity) {//    en.render(g);//} //for (Tile ti:tile) {//    ti.render(g);//}
     }
     
     public void tick(){
@@ -50,7 +40,6 @@ public class Handler {
             Tile t = tile.get(i);
             t.tick();
         }
-        //for (Entity en: entity) {//    en.tick();//}//for (Tile ti:tile) {//    ti.tick();//}
     }
     
     public void addEntity(Entity en){
@@ -68,44 +57,45 @@ public class Handler {
     }
     
     public void createLevel(BufferedImage level){
-        int flag = 1;
+        int flag = 0,flag2 = 0,flag3 = 0;
+        int numeroDeProva = 10;
+        int numeroDePlayer = 1;
+        int numeroDeEstudantes = 2;
+        
         int width = level.getWidth();
         int height = level.getHeight();
-        System.out.println("w" + width+"h : " +height);
-        
+        int pixel;
+        int red;
+        int green;
+        int blue;
+       
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int pixel = level.getRGB(x, y);
-                int red = (pixel >>16)& 0xff;
-                int green = (pixel >>8)& 0xff;
-                int blue = (pixel)& 0xff;
-                
+                pixel = level.getRGB(x, y);
+                red = (pixel >>16)& 0xff;
+                green = (pixel >>8)& 0xff;
+                blue = (pixel)& 0xff;
+                //CONDIÇÕES PARA GERAR OS OBJETOS QUE COMPÕEM A FASE COMO: MUROS, PLAYER, ESTUDANTES E PROVA
                 if(red == 0 && green == 0 && blue == 0){
                     addTile(new Wall(x*64,y*64,64,64,true,Id.wall,this));
                 }
                 
-                if(red == 0 && green == 0 && blue == 255 && flag == 1){
-                    flag = 0;
-                    System.out.println("ee");
+                if(red == 0 && green == 0 && blue == 255 && flag != numeroDePlayer ){
+                    flag++;
                     addEntity(new Player(x*64,y*64,64,64, Id.player,this));
                 }
                 
-                if(red == 255 && green == 0 && blue == 0){
-                    System.out.println("E");
+                if(red == 255 && green == 0 && blue == 0 && flag2 != numeroDeEstudantes){
+                    flag2++;
                     addEntity(new Student(x*64,y*64,64,64 ,Id.student,this));
                 }
                 
-                if(red == 0 && green == 255 && blue == 0){
-                    System.out.println("Easdasdasd");
+                if(red == 0 && green == 255 && blue == 0 && flag3 != numeroDeProva){
+                    flag3++;
                     addTile(new Prova(x*64,y*64,64,64,true ,Id.prova,this));
                 }
- 
             }
         }
-        
-        
-        
-        
     }
     
     public void clearLevel(){
