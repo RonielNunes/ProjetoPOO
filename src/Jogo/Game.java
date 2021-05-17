@@ -32,16 +32,17 @@ public class Game extends Canvas implements Runnable{
     private boolean running = false;
     private BufferedImage image;
     
-    public static int lives = 1;
+    public static int lives = 2;
     public static int deathScreeanTime = 0;
     public static boolean showDeathScreen = true;
     public static boolean gameOver = false;
+    public static boolean gameWins = false;
     
     public static Handler handler;
     public static SpriteSheet sheet;
     public static Camera cam;
     
-    public static int provaNumero = 0;
+    public static int provaNumero = 10;
     
     public static Sprite grass;
     public static Sprite prova;
@@ -152,13 +153,13 @@ public class Game extends Canvas implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(),getHeight());
         
-        g.drawImage(Game.prova.getBufferedImage(), 50, 20,100,100, null);
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Courier",Font.BOLD,20));
-        g.drawString("Falta Corrigir : " + provaNumero , 160, 80);
+
         
-        if(!showDeathScreen){
-           
+        if(!showDeathScreen && !gameWins){
+            g.drawImage(Game.prova.getBufferedImage(), 50, 20,100,100, null);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Courier",Font.BOLD,20));
+            g.drawString("Falta Corrigir : " + provaNumero , 160, 80);
         }
         
         if(showDeathScreen){
@@ -171,13 +172,22 @@ public class Game extends Canvas implements Runnable{
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Courier",Font.BOLD,50));
                      
-                g.drawString("Game Over", 500, 400);
+                g.drawString("GAME OVER!", 500, 400);
             }
+            
+
+        }
+        if(gameWins){
+            System.out.println("esasssssssssssssssssssssssssssssssssssssssssssssss");
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Courier",Font.BOLD,50));  
+            g.drawString("WINS!", 570, 400);
         }
        
         g.translate(cam.getX(),cam.getY());
         
-        if(!showDeathScreen){
+        if(!showDeathScreen && !gameWins){
+            System.out.println("-------------------------------------------------");
             handler.render(g);
         }
         //g.setColor(Color.yellow);

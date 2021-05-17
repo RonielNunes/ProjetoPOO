@@ -19,7 +19,6 @@ import java.awt.Graphics;
  */
 public class Player extends Entity{
  
-    private boolean animate = false;
     private PlayerState state;
     
     public Player(int x, int y, int width, int height , Id id,Handler handler){
@@ -42,7 +41,7 @@ public class Player extends Entity{
  
     public void tick() {
         x+=velX;
-         y+=velY;
+        y+=velY;
        // if(x <= 0){ //Colisão esquerda //     x = 0;//}
         //y+=velY;
         if(y <= 0){ //colisao cima
@@ -63,7 +62,50 @@ public class Player extends Entity{
         
         
         //colisao  
-        for (Tile t: handler.tile) {
+        for (int i = 0; i < handler.tile.size(); i++) {
+            Tile t = handler.tile.get(i);
+            
+            if(t.isSolid()){
+                if(getBoundsTop().intersects(t.getBounds()) && t.getId()!=Id.prova){
+                    setVelY(0);
+                    if(jumping){
+                        jumping = false;
+                        gravity = 0.8;
+                        falling = true;
+                    }
+                }
+                
+                if(getBoundsBottom().intersects(t.getBounds()) && t.getId()!=Id.prova){
+                     setVelY(0);
+                     if(falling) falling = false;
+                }else if(!falling && !jumping){
+                    falling = true;
+                    gravity = 0.8;
+                }
+                
+                if(getBoundsLeft().intersects(t.getBounds()) && t.getId()!=Id.prova){
+                    setVelX(0);
+                    x = t.getX()+t.width;
+                }
+                if(getBoundsRight().intersects(t.getBounds()) && t.getId()!=Id.prova){
+                    setVelX(0);
+                    x = t.getX() - t.width;
+                }
+                if(getBounds().intersects(t.getBounds())&& t.getId()==Id.prova){
+                    System.out.println("TEstes");
+                    Game.provaNumero--;//Game.provaNumero++;
+                    if(Game.provaNumero <= 0){
+                        System.out.println("asaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                        Game.gameWins = true;
+                    }
+                    t.die();
+                }
+            }
+        }
+        
+        
+        
+       /* for (Tile t: handler.tile) {
             if(!t.solid){
                 break;
             }
@@ -106,16 +148,14 @@ public class Player extends Entity{
                     t.die();
                 }
             }
-        }
+        }*/
         
         for (int i = 0; i < handler.entity.size(); i++) {
             Entity e = handler.entity.get(i);
-            
             if(e.getId() == Id.student){
                 if(getBoundsBottom().intersects(e.getBoundsTop())){
                     e.die();
                 }else if(getBounds().intersects(e.getBounds())){
-                    //colocar numero de vidas 22
                     if(state==PlayerState.ALIVE){
                         die();
                     }
@@ -123,8 +163,7 @@ public class Player extends Entity{
                 }
             }
         }
- 
-        
+    
         if(jumping){
             gravity -= 0.1;
             setVelY((int)-gravity);
