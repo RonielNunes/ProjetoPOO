@@ -94,6 +94,7 @@ public class Handler {
                     flag3++;
                     addTile(new Prova(x*64,y*64,64,64,true ,Id.prova,this));
                 }
+ 
             }
         }
     }
