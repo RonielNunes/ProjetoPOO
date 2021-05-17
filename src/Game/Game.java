@@ -1,4 +1,4 @@
-package Jogo;
+package Game;
 
 import Entity.Entity;
 import Entity.Player;
@@ -80,7 +80,7 @@ public class Game extends Canvas implements Runnable{
         }
         
         try{
-            image = ImageIO.read(new FileInputStream("src\\res\\fase.png"));
+            image = ImageIO.read(new FileInputStream("src\\res\\map2.png"));
         }catch(IOException e){
             e.printStackTrace();
         }

@@ -1,8 +1,8 @@
 package Entity;
 
-import Jogo.Game;
-import Jogo.Handler;
-import Jogo.Id;
+import Game.Game;
+import Game.Handler;
+import Game.Id;
 import Tile.Tile;
 import java.awt.Graphics;
 import java.util.Random;

@@ -1,7 +1,7 @@
 package Tile;
 
-import Jogo.Handler;
-import Jogo.Id;
+import Game.Handler;
+import Game.Id;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 

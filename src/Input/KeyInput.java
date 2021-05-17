@@ -1,8 +1,8 @@
 package Input;
 
 import Entity.Entity;
-import Jogo.Game;
-import Jogo.Id;
+import Game.Game;
+import Game.Id;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

@@ -1,4 +1,4 @@
-package Jogo;
+package Game;
 
 import Entity.Entity;
 import Entity.Player;
@@ -85,13 +85,11 @@ public class Handler {
                     addEntity(new Player(x*64,y*64,64,64, Id.player,this));
                 }
                 
-                if(red == 255 && green == 0 && blue == 0 && flag2 != numeroDeEstudantes){
-                    flag2++;
+                if(red == 255 && green == 0 && blue == 0){
                     addEntity(new Student(x*64,y*64,64,64 ,Id.student,this));
                 }
                 
-                if(red == 0 && green == 255 && blue == 0 && flag3 != numeroDeProva){
-                    flag3++;
+                if(red == 0 && green == 255 && blue == 0 ){
                     addTile(new Prova(x*64,y*64,64,64,true ,Id.prova,this));
                 }
  

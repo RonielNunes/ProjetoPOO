@@ -1,8 +1,8 @@
 package Tile;
 
-import Jogo.Game;
-import Jogo.Handler;
-import Jogo.Id;
+import Game.Game;
+import Game.Handler;
+import Game.Id;
 import java.awt.Color;
 import java.awt.Graphics;
 
