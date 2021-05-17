@@ -56,7 +56,6 @@ public abstract class Entity {
         if(Game.lives <= 0){
             Game.gameOver = true;
         }
-        
     }
     
     

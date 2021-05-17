@@ -10,6 +10,6 @@ package Jogo;
  * @author Roniel Nunes
  */
 public enum Id {
-    player, wall, student;
+    player, wall, student, prova;
     
 }

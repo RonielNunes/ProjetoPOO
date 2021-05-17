@@ -41,8 +41,10 @@ public class Game extends Canvas implements Runnable{
     public static SpriteSheet sheet;
     public static Camera cam;
     
+    public static int provaNumero = 0;
     
     public static Sprite grass;
+    public static Sprite prova;
     
     
     public static Sprite []player;//player;//[]= new Sprite[18];
@@ -63,6 +65,7 @@ public class Game extends Canvas implements Runnable{
         addKeyListener(new KeyInput()); 
         
         grass = new Sprite (sheet,1,1); //coluna linha 
+        prova = new Sprite (sheet,2,1);
         
         player = new Sprite[12];//player= new Sprite (sheet,1,1);
         student = new Sprite[12];
@@ -76,7 +79,7 @@ public class Game extends Canvas implements Runnable{
         }
         
         try{
-            image = ImageIO.read(new FileInputStream("src\\res\\levelOne.png"));
+            image = ImageIO.read(new FileInputStream("src\\res\\fase.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -148,9 +151,16 @@ public class Game extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(),getHeight());
+        
+        g.drawImage(Game.prova.getBufferedImage(), 50, 20,100,100, null);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Courier",Font.BOLD,20));
+        g.drawString("Falta Corrigir : " + provaNumero , 160, 80);
+        
         if(!showDeathScreen){
            
         }
+        
         if(showDeathScreen){
             if(!gameOver){
                 g.setColor(Color.WHITE);

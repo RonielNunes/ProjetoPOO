@@ -8,6 +8,7 @@ package Jogo;
 import Entity.Entity;
 import Entity.Player;
 import Entity.Student;
+import Tile.Prova;
 import Tile.Tile;
 import Tile.Wall;
 import java.awt.Graphics;
@@ -92,6 +93,11 @@ public class Handler {
                 if(red == 255 && green == 0 && blue == 0){
                     System.out.println("E");
                     addEntity(new Student(x*64,y*64,64,64 ,Id.student,this));
+                }
+                
+                if(red == 0 && green == 255 && blue == 0){
+                    System.out.println("Easdasdasd");
+                    addTile(new Prova(x*64,y*64,64,64,true ,Id.prova,this));
                 }
  
             }

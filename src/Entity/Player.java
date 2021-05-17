@@ -55,11 +55,11 @@ public class Player extends Entity{
         if(y + height >=771){ //colisao baixo
             y = 771 - height;
         }
-        if(velX!=0){
-            animate = true;
-        }else{
-            animate = false;
-        }
+        //if(velX!=0){
+         //   animate = true;
+        //}else{
+        //    animate = false;
+       // }
         
         
         //colisao  
@@ -68,7 +68,7 @@ public class Player extends Entity{
                 break;
             }
             if(t.getId() == Id.wall){
-                if(getBoundsTop().intersects(t.getBounds())){
+                if(getBoundsTop().intersects(t.getBounds()) && t.getId() != Id.prova){
                     setVelY(0);
                     if(jumping){
                         jumping = false;
@@ -78,7 +78,7 @@ public class Player extends Entity{
                     //y = t.getY()+t.height;
                     //removido para implemntar pulo y = t.getY()+t.height; //se precimar muito ele muda para outra possicap
                 }
-                if(getBoundsBottom().intersects(t.getBounds())){
+                if(getBoundsBottom().intersects(t.getBounds())&& t.getId() != Id.prova){
                     setVelY(0); //se precimar muito ele muda para outra possicap
                     //y = t.getY()-t.height;
                     if(falling){
@@ -92,13 +92,18 @@ public class Player extends Entity{
                     }
                     //removido para implemntar pulo y = t.getY()-t.height;
                 }
-                if(getBoundsLeft().intersects(t.getBounds())){
+                if(getBoundsLeft().intersects(t.getBounds()) && t.getId() != Id.prova){
                     setVelX(0);
                     x = t.getX()+t.width; 
                 }
-                if(getBoundsRight().intersects(t.getBounds())){
+                if(getBoundsRight().intersects(t.getBounds()) && t.getId() != Id.prova){
                     setVelX(0);
                     x = t.getX()-t.width;
+                }
+                if(getBounds().intersects(t.getBounds())&& t.getId()==Id.prova){
+                    System.out.println("Essdsdsaaaaaaaaaaaaaaaaaa");
+                    Game.provaNumero++;
+                    t.die();
                 }
             }
         }
